@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Latch</string>
+    <string name="admin_msg">You have currently admin rights</string>
+    <string name="no_admin_msg">You need admin rights to run this app</string>
+</resources>
