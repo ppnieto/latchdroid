@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "836018819276",
+    "firebase_url": "https://latchdroid-a4bbe.firebaseio.com",
+    "project_id": "latchdroid-a4bbe",
+    "storage_bucket": "latchdroid-a4bbe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:836018819276:android:8d9f5d650a91abce",
+        "android_client_info": {
+          "package_name": "net.pepenieto.latchdroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "836018819276-dca8kdnbt1u02aj9ont5765v5uecgn8g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.pepenieto.latchdroid",
+            "certificate_hash": "9A94502CBC6FEC2650640DB449E534CE2EC03035"
+          }
+        },
+        {
+          "client_id": "836018819276-dij017sorp5r49jrf5nvacq8pd0mjhfa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8iemSI-LHKqc7h6Aw9lGrq9I--d7D1fI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "836018819276-dij017sorp5r49jrf5nvacq8pd0mjhfa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
