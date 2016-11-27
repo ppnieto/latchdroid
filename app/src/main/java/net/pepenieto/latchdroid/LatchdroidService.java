@@ -10,7 +10,7 @@ import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.elevenpaths.latch.Latch;
+import com.elevenpaths.latch.LatchApp;
 import com.elevenpaths.latch.LatchResponse;
 
 import org.androidannotations.annotations.Background;
@@ -36,8 +36,7 @@ public class LatchdroidService extends Service {
     @Background
     public void onDeviceLock(Context context) {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-
-        Latch latch = new Latch(LatchConfig.APP_ID,LatchConfig.SECRET_KEY);
+        LatchApp latch = new LatchApp(LatchConfig.APP_ID,LatchConfig.SECRET_KEY);
         LatchResponse response = latch.operationStatus(sharedPref.getString(MainActivity.LATCH_ACCOUNT,""),LatchConfig.OPERATION_ID);
         Log.d(TAG,response.toJSON().toString());
 

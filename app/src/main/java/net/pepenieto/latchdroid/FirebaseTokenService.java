@@ -12,8 +12,8 @@ import com.google.gson.JsonElement;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LatchdroidFirebaseService extends FirebaseInstanceIdService {
-    private static String TAG = LatchdroidFirebaseService.class.getSimpleName();
+public class FirebaseTokenService extends FirebaseInstanceIdService {
+    private static String TAG = FirebaseTokenService.class.getSimpleName();
     public static String FIREBASE_TOKEN = "FIREBASE_TOKEN";
 
     @Override

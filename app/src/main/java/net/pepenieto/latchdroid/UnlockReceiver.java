@@ -5,10 +5,12 @@ import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.elevenpaths.latch.Latch;
+import com.elevenpaths.latch.LatchApp;
 import com.elevenpaths.latch.LatchResponse;
 
 /**
@@ -27,8 +29,9 @@ public class UnlockReceiver extends BroadcastReceiver {
 
                 @Override
                 protected Void doInBackground(String... params) {
-                    Latch latch = new Latch("mDnJmkX7a9CxEkEXPRCW","mNUkGgr7pHBXEJ8uFbkpECPugWrFR6MedwdfWUbE");
-                    LatchResponse response = latch.operationStatus("muMnGKT7MRFdRR3PRspn4jfqyvDAyDcnFkWGtgduJbF2JJkHCuDVW6rDbvWkJ2Zh","ZVRcCMGh28md7XjbxQTi");
+                    SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+                    LatchApp latch = new LatchApp(LatchConfig.APP_ID,LatchConfig.SECRET_KEY);
+                    LatchResponse response = latch.operationStatus(sharedPref.getString(MainActivity.LATCH_ACCOUNT,""),LatchConfig.OPERATION_ID);
                     if (response.toJSON().getAsJsonObject("data").getAsJsonObject("operations").getAsJsonObject("ZVRcCMGh28md7XjbxQTi").get("status").getAsString().equals("off")) {
                         doLock(context);
                     }
