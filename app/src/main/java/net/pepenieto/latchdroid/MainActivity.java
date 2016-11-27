@@ -42,6 +42,7 @@ public class MainActivity extends Activity {
 
     @AfterViews
     protected void updateScreen() {
+        Log.d(TAG,"updateScreen");
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         ComponentName adminComponent = new ComponentName(this, UnlockReceiver.class);
         DevicePolicyManager devicePolicyManager = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
@@ -49,6 +50,7 @@ public class MainActivity extends Activity {
         boolean isAdmin = devicePolicyManager.isAdminActive(adminComponent);
         boolean isLatchAccountID = sharedPref.contains(LATCH_ACCOUNT);
 
+        Log.d(TAG,"isLatchAccountID: " + isLatchAccountID);
         if (isLatchAccountID) {
             Log.v(TAG,"Latch account: " + sharedPref.getString(LATCH_ACCOUNT,""));
             testLatch();
@@ -103,30 +105,28 @@ public class MainActivity extends Activity {
     @UiThread
     public void updateResult(LatchResponse result) {
         if (result.getError() != null) {
-            setError(result.toJSON().getAsJsonObject("error").get("message").getAsString(),true);
-        } else {
-            String accountID = result.toJSON().getAsJsonObject("data").get("accountId").getAsString();
-            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-
-            SharedPreferences.Editor editor = sharedPref.edit();
-            editor.putString(LATCH_ACCOUNT, accountID);
-            Log.d(TAG,"Put accountID = " + accountID);
-            editor.commit();
-            updateScreen();
+            if (result.toJSON().getAsJsonObject("error").get("code").getAsInt() != 205) {
+                // 205 is already latched, use accountID as regular pair
+                setError(result.toJSON().getAsJsonObject("error").get("message").getAsString(), true);
+                return;
+            }
         }
+
+        String accountID = result.toJSON().getAsJsonObject("data").get("accountId").getAsString();
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString(LATCH_ACCOUNT, accountID);
+        Log.d(TAG,"Put accountID = " + accountID);
+        editor.commit();
+        updateScreen();
     }
 
 
     @Click
     @Trace
     public void btnStart() {
-        LatchdroidService_.intent(getApplication())
-                .start();
-
-        /*
-        Intent service = new Intent(getApplicationContext(), LatchdroidService.class);
-        startService(service);
-        */
+        LatchdroidService_.intent(getApplication()).start();
         finish();
     }
 

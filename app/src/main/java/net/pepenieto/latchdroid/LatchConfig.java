@@ -6,6 +6,6 @@ package net.pepenieto.latchdroid;
 
 public interface LatchConfig {
     static final String APP_ID = "mDnJmkX7a9CxEkEXPRCW";
-    static final String SECRET_KEY = "mNUkGgr7pHBXEJ8uFbkpECPugWrFR6MedwdfWUbE";
-    static final String OPERATION_ID = "ZVRcCMGh28md7XjbxQTi";
+    static final String SECRET_KEY = "nY9vR3HyCNXwG6MRiU9R3irrsD4twWrmtbueZBDx";
+    static final String OPERATION_ID = "RDXUbGAAmXXTbr7LWrKy";
 }

@@ -27,16 +27,21 @@ dependencies {
 
     apt "org.androidannotations:androidannotations:$AAVersion"
     compile "org.androidannotations:androidannotations-api:$AAVersion"
-    compile "com.google.code.gson:gson:2.7"
 
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.google.firebase:firebase-core:10.0.0'
+    compile 'com.google.firebase:firebase-messaging:10.0.0'
     testCompile 'junit:junit:4.12'
 }
+
+apply plugin: 'com.google.gms.google-services'
 
 apt {
     arguments {
         androidManifestFile variant.outputs[0]?.processResources?.manifestFile
     }
 }
+

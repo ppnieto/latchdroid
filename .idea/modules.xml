@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Latch.iml" filepath="$PROJECT_DIR$/Latch.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/latchdroid.iml" filepath="$PROJECT_DIR$/latchdroid.iml" />
     </modules>
   </component>
 </project>

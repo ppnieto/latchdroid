@@ -35,9 +35,7 @@ public class LatchdroidService extends Service {
 
     @Background
     public void onDeviceLock(Context context) {
-        Log.d(TAG,"context = " + context);
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-        Log.d(TAG,"prefs = " + sharedPref);
 
         Latch latch = new Latch(LatchConfig.APP_ID,LatchConfig.SECRET_KEY);
         LatchResponse response = latch.operationStatus(sharedPref.getString(MainActivity.LATCH_ACCOUNT,""),LatchConfig.OPERATION_ID);
@@ -48,7 +46,7 @@ public class LatchdroidService extends Service {
             return;
         }
 
-        if (response.toJSON().getAsJsonObject("data").getAsJsonObject("operations").getAsJsonObject("ZVRcCMGh28md7XjbxQTi").get("status").getAsString().equals("off")) {
+        if (response.toJSON().getAsJsonObject("data").getAsJsonObject("operations").getAsJsonObject(LatchConfig.OPERATION_ID).get("status").getAsString().equals("off")) {
             ComponentName componentName = new ComponentName(context, UnlockReceiver.class);
             DevicePolicyManager dpm = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
             boolean active = dpm.isAdminActive(componentName);
