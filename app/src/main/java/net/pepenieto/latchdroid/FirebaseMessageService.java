@@ -33,4 +33,9 @@ public class FirebaseMessageService extends FirebaseMessagingService {
 
         }
     }
+
+    public void onStartCommand() {
+        Log.d(TAG,"onStartCommand");
+    }
+
 }

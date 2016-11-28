@@ -31,7 +31,7 @@ public class UnlockReceiver extends BroadcastReceiver {
                 protected Void doInBackground(String... params) {
                     SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
                     LatchApp latch = new LatchApp(LatchConfig.APP_ID,LatchConfig.SECRET_KEY);
-                    LatchResponse response = latch.operationStatus(sharedPref.getString(MainActivity.LATCH_ACCOUNT,""),LatchConfig.OPERATION_ID);
+                    LatchResponse response = latch.status(sharedPref.getString(context.getString(R.string.LATCH_ACCOUNT),""),LatchConfig.OPERATION_ID);
                     if (response.toJSON().getAsJsonObject("data").getAsJsonObject("operations").getAsJsonObject("ZVRcCMGh28md7XjbxQTi").get("status").getAsString().equals("off")) {
                         doLock(context);
                     }

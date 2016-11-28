@@ -20,10 +20,10 @@
 
         <service
             android:name=".LatchdroidService_"
-            android:enabled="true"
             android:exported="true" />
 
-        <service android:name="net.pepenieto.latchdroid.FirebaseTokenService">
+        <service
+            android:name="net.pepenieto.latchdroid.FirebaseTokenService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>

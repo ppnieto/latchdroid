@@ -2,4 +2,17 @@
     <string name="app_name">Latchdroid</string>
     <string name="admin_msg">You have currently admin rights</string>
     <string name="no_admin_msg">You need admin rights to run this app</string>
+    <string name="pairToken">Pair token</string>
+    <string name="pair">Pair</string>
+    <string name="unpair">Unpair</string>
+    <string name="makeAdmin">Request</string>
+    <string name="start">Start</string>
+    <string name="remoteLock">Remote lock by notifications</string>
+    <string name="LATCH_ACCOUNT">LATCH_ACCOUNT</string>
+    <string name="noConnection">When no connection</string>
+    <string name="on">lock</string>
+    <string name="off">allow</string>
+    <string name="last">last</string>
+    <string name="alert">Alert!!!</string>
+    <string name="permanentLockAlert">Maybe permanent lock if you disable or lost data connections. Switch off and restart your device if this occurs. Do you want to continue?</string>
 </resources>

@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Latchdroid</string>
+    <string name="admin_msg">Tiene privilegios de administración</string>
+    <string name="no_admin_msg">Necesita privilegios para ejecutar esta app</string>
+    <string name="pairToken">Código</string>
+    <string name="pair">Parear</string>
+    <string name="unpair">Desparear</string>
+    <string name="makeAdmin">Solicitar</string>
+    <string name="start">Iniciar</string>
+    <string name="remoteLock">Bloqueo remoto por notificaciones</string>
+    <string name="noConnection">Si no hay conexión</string>
+    <string name="on">bloquear</string>
+    <string name="off">permitir</string>
+    <string name="last">recordar última</string>
+    <string name="alert">Atención</string>
+    <string name="permanentLockAlert">Si deshabilita o pierde la conexión puede bloquear el dispositivo permanentemente. Apague y encienda el dispositivo si esto ocurre. ¿Desea continuar?</string>
+
 </resources>
